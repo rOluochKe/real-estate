@@ -1,0 +1,69 @@
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light diff-color">
+      <%= link_to root_path, class: "navbar-brand" do %>
+        <i class="fa fa-home"></i> Real Estate App
+      <% end %>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto mr-2">
+          <li class="nav-item"><%= link_to "Home", root_path, class: "nav-link"  %></li>
+          <li class="nav-item"><%= link_to "About Us", about_us_path, class: "nav-link"  %></li>
+          <% if user_signed_in? %>
+            <li class="nav-item dropdown">
+              <a id= "navbarDropdown" class="nav-link dropdown-toggle font-raleway" 
+                  href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Houses Listings <b class="caret"></b>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <%= link_to "Create House", new_house_path, class: "dropdown-item font-raleway" %>
+                <%= link_to "View Houses", houses_path, class: "dropdown-item font-raleway" %>
+              </div>
+            </li> 
+
+            <li class="nav-item dropdown">
+              <a id= "navbarDropdown" class="nav-link dropdown-toggle font-raleway" 
+                  href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Complex Buildings <b class="caret"></b>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <%= link_to "Create Complex Building", new_complex_building_path, class: "dropdown-item font-raleway" %>
+                <%= link_to "View Complex Buildings", complex_buildings_path, class: "dropdown-item font-raleway" %>
+              </div>
+            </li> 
+
+            <li class="nav-item dropdown">
+              <a id= "navbarDropdown" class="nav-link dropdown-toggle font-raleway" 
+                  href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Commercial Units <b class="caret"></b>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <%= link_to "Create Commercial Unit", new_commercial_unit_path, class: "dropdown-item font-raleway" %>
+                <%= link_to "View Commercial Units", commercial_units_path, class: "dropdown-item font-raleway" %>
+              </div>
+            </li> 
+          <% end %>
+        </ul>
+        <div class="nav navbar-nav navbar-right">
+          <% if user_signed_in? %>
+            <li class="nav-item dropdown">
+              <a id= "navbarDropdown" class="nav-link dropdown-toggle font-raleway" 
+                  href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                My Account <b class="caret"></b>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <%= link_to "My Profile", user_path(current_user), class: "dropdown-item font-raleway" %>
+                <%= link_to "Edit Profile", edit_user_registration_path, class: "dropdown-item font-raleway" %>
+                <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item font-raleway" %>
+              </div>
+            </li>
+          <% else %>
+            <%= link_to "Register", new_user_registration_path, class: "btn btn-outline-secondary mr-2 log-out" %>&nbsp;
+            <%= link_to "Log In", new_user_session_path, class: "btn btn-outline-secondary log-out" %>
+          <% end %>
+        </div>
+      </div>
+    </nav>
+</header>

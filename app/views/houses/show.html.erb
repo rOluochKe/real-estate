@@ -1,0 +1,45 @@
+<div class="container-fluid mt-4">
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="text-center mb-4">House Details</h1>
+      <div class="row">
+
+         <div class="col-md-4">
+          <div class="card">
+            <%= image_tag(@house.image_url) %>
+            <div class="card-body">
+              <h5 class="card-title"><strong>Owner:</strong> <%= @house.owner %></h5>
+              <p class="card-text"><strong>Address:</strong> <%= @house.address %></p>
+              <p class="card-text"><strong>Rooms:</strong> <%= @house.rooms %></p>
+              <p class="card-text"><strong>Sqmt:</strong> <%= @house.sqmt %></p>
+              <p class="card-text"><strong>Floors:</strong> <%= @house.floors %></p>
+              <p class="card-text"><strong>Air Conditioner:</strong> <%= @house.air_cond %></p>
+              <p class="card-text"><strong>Price:</strong> $<%= @house.price %></p>
+
+              <% if @house.user == current_user %>
+                <%= link_to '<i class="fa fa-pencil-square-o go-center"></i>'.html_safe, edit_house_path(@house) %>
+              <% end %>
+              |
+              <% if @house.user == current_user %>
+                <%= link_to ('<i class="fa fa-trash go-center"></i>').html_safe, @house, :method=> :delete, data: { confirm: 'Are you sure?' } %>
+              <% end %>
+              |
+              <%= link_to '<i class="fa fa-cart-plus go-center"></i>'.html_safe %>
+            </div>
+          </div>        
+        </div>
+
+        <div class="col-md-8">
+          <% if @house.images.attached? %>
+            <main class="cards">
+              <% @house.images.each do |image| %>
+                <%= image_tag image %>
+              <% end %>
+            </main>
+          <% end %>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

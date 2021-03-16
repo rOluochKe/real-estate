@@ -1,0 +1,71 @@
+<div class="container-fluid">
+  <div class="row mt-1">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="jumbotron">
+        <h3 class="display-6"><strong>Browse Latest and Unique Real Estate Properties</strong></h3>
+        <p class="lead mt-3">Real estate properties listings show that the percentage of homes and businesses sold during Q2 2015 is 25%, but this figure does not include non-residential property sales (such as office buildings) in which fewer than 15% are being marketed.</p>
+
+        <% if user_signed_in? %>
+          <%= link_to "Create House", new_house_path, class: "btn btn-outline-success btn-lg mt-3" %> | <%= link_to "Create Complex Building", new_complex_building_path, class: "btn btn-outline-primary btn-lg mt-3" %> |  <%= link_to "Create Commercial Unit", new_commercial_unit_path, class: "btn btn-outline-secondary btn-lg mt-3" %>
+        <% else %>
+          <%= link_to "Create Account", new_user_registration_path, class: "btn btn-outline-primary btn-lg mt-3" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-1">
+    <div class="col-md-12"><h3 class="display-6"><strong>Houses Listings</strong></h3></div>
+    <% @houses.limit(4).each do |house| %>
+      <div class="col-md-3">
+        <div class="card">
+        <div class="img-bg-fix" style="background-image: url(<%= house.image %>)"></div>
+          <div class="card-body">
+            <h5 class="card-title"><strong>Owner:</strong> <%= house.owner %></h5>
+            <p class="card-text"><strong>Address:</strong> <%= house.address %></p>
+            <p class="card-text"><strong>Price:</strong> $<%= house.price %></p>
+            <%= link_to "View Details", house, class: "btn btn-outline-secondary" %> | <button type="button" class="btn btn-outline-dark">Buy Property</button>
+          </div>
+        </div>        
+      </div>
+    <% end %>  
+  </div>
+
+  <hr class="mt-5" />
+
+  <div class="row mt-5">
+    <div class="col-md-12"><h3 class="display-6"><strong>Complex Building Listings</strong></h3></div>
+    <% @complex_buildings.limit(4).each do |complex_building| %>
+      <div class="col-md-3">
+        <div class="card">
+          <div class="img-bg-fix" style="background-image: url(<%= complex_building.image %>)"></div>
+          <div class="card-body">
+            <h5 class="card-title"><strong>Owner:</strong> <%= complex_building.owner %></h5>
+            <p class="card-text"><strong>Address:</strong> <%= complex_building.address %></p>
+            <p class="card-text"><strong>Price:</strong> $<%= complex_building.price %></p>
+            <%= link_to "View Details", complex_building, class: "btn btn-outline-secondary" %> | <button type="button" class="btn btn-outline-dark">Buy Property</button>
+          </div>
+        </div>        
+      </div>
+    <% end %>  
+  </div>
+
+  <hr class="mt-5" />
+
+  <div class="row mt-5">
+    <div class="col-md-12"><h3 class="display-6"><strong>Commercial Units Listings</strong></h3></div>
+    <% @commercial_units.limit(4).each do |commercial_unit| %>
+      <div class="col-md-3">
+        <div class="card">
+          <div class="img-bg-fix" style="background-image: url(<%= commercial_unit.image %>)"></div>
+          <div class="card-body">
+            <h5 class="card-title"><strong>Owner:</strong> <%= commercial_unit.owner %></h5>
+            <p class="card-text"><strong>Address:</strong> <%= commercial_unit.address %></p>
+            <p class="card-text"><strong>Price:</strong> $<%= commercial_unit.price %></p>
+            <%= link_to "View Details", commercial_unit, class: "btn btn-outline-secondary" %> | <button type="button" class="btn btn-outline-dark">Buy Property</button>
+          </div>
+        </div>        
+      </div>
+    <% end %>  
+  </div>
+</div>

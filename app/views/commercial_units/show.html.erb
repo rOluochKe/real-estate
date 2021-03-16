@@ -1,0 +1,44 @@
+<div class="container-fluid mt-4">
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="text-center mb-4">Commercial Unit Details</h1>
+      <div class="row">
+      
+        <div class="col-md-4">
+          <div class="card">
+            <%= image_tag(@commercial_unit.image_url) %>
+            <div class="card-body">
+              <h5 class="card-title"><strong>Owner:</strong> <%= @commercial_unit.owner %></h5>
+              <p class="card-text"><strong>Address:</strong> <%= @commercial_unit.address %></p>
+              <p class="card-text"><strong>Shops:</strong> <%= @commercial_unit.shops %></p>
+              <p class="card-text"><strong>Sqmt:</strong> <%= @commercial_unit.sqmt %></p>
+              <p class="card-text"><strong>Parking:</strong> <%= @commercial_unit.parking %></p>
+              <p class="card-text"><strong>Price:</strong> $<%= @commercial_unit.price %></p>
+
+              <% if @commercial_unit.user == current_user %>
+                <%= link_to '<i class="fa fa-pencil-square-o go-center"></i>'.html_safe, edit_commercial_unit_path(@commercial_unit) %>
+              <% end %>
+              |
+              <% if @commercial_unit.user == current_user %>
+                <%= link_to ('<i class="fa fa-trash go-center"></i>').html_safe, @commercial_unit, :method=> :delete, data: { confirm: 'Are you sure?' } %>
+              <% end %>
+              |
+              <%= link_to '<i class="fa fa-cart-plus go-center"></i>'.html_safe %>
+            </div>
+          </div>        
+        </div>
+
+        <div class="col-md-8">
+          <% if @commercial_unit.images.attached? %>
+            <main class="cards">
+              <% @commercial_unit.images.each do |image| %>
+                <%= image_tag image %>
+              <% end %>
+            </main>
+          <% end %>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+<div class="container-fluid">
+  <div class="row mt-5">
+    <div class="col-md-6">
+      <div class="jumbotron">
+        <h3 class="display-6 mb-4"><strong>About Us</strong></h3>
+        <p class="lead">Real estate properties listings show that the percentage of homes and businesses sold during Q2 2015 is 25%, but this figure does not include non-residential property sales (such as office buildings) in which fewer than 15% are being marketed.</p>
+
+        <p class="lead">A total gross sale for all commercial, industrial or residential units includes only those where they have been offered to buyers at least once since July 1, 2007. Therefore these numbers represent an estimate based on current market conditions.[25] "The value of a $100m home can rise very quickly by selling 20 million square feet," said Kipnis.[26][27]. "This was achieved without using up any special prime locatio</p>
+
+        <% if user_signed_in? %>
+          <%= link_to "Create House", new_house_path, class: "btn btn-outline-success btn-lg mt-3" %> | <%= link_to "Create Complex Building", new_complex_building_path, class: "btn btn-outline-primary btn-lg mt-3" %> |  <%= link_to "Create Commercial Unit", new_commercial_unit_path, class: "btn btn-outline-secondary btn-lg mt-3" %>
+        <% else %>
+          <%= link_to "Create Account", new_user_registration_path, class: "btn btn-outline-primary btn-lg mt-4" %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="jumbotron">
+        <h3 class="display-6 mb-5"><strong>Contact Us</strong></h3>
+        <p><strong>Address: </strong> Borromei n. 2, 20123 Milano</p>
+
+        <p><strong>Office: </strong> realhouse.io</p>
+
+        <p><strong>Telephone: </strong> +123 456 789 234</p>
+
+        <p><strong>Email: </strong> info@realhouse.io</p>
+
+        <p><strong>Facebook: </strong> <a href="#" target="_blank">@realhouse</a></p>
+
+        <p><strong>Twitter: </strong> <a href="#" target="_blank">@realhouse</a></p>
+
+        <p><strong>LinkedIn: </strong> <a href="#" target="_blank">@realhouse</a></p>
+
+        <p><strong>Instagram: </strong> <a href="#" target="_blank">@realhouse</a></p>
+      </div>
+    </div>
+  </div>
+</div>

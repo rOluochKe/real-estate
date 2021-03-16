@@ -1,0 +1,41 @@
+<%= form_for(@complex_building, hmtl: { multipart: true } ) do |f| %>
+  <div class="form-group">
+    <%= f.label :image %>
+    <%= f.file_field :image, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :owner %>
+    <%= f.text_field :owner, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :address %>
+    <%= f.text_field :address, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :units %>
+    <%= f.number_field :units, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :sqmt %>
+    <%= f.number_field :sqmt, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :price %>
+    <%= f.text_field :price, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :images %> <br />
+    <%= f.file_field :images, multiple: true, accept: "image/jpeg, image/jpg, image/gif, image/png" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit "Update Complex Building", class: 'btn btn-outline-primary' %>
+  </div>
+
+<% end %>

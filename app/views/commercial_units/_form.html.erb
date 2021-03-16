@@ -1,0 +1,46 @@
+<%= form_for(@commercial_unit, hmtl: { multipart: true } ) do |f| %>
+  <div class="form-group">
+    <%= f.label :image %>
+    <%= f.file_field :image, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :owner %>
+    <%= f.text_field :owner, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :address %>
+    <%= f.text_field :address, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :shops %>
+    <%= f.number_field :shops, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :sqmt %>
+    <%= f.number_field :sqmt, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :parking %>
+    <%= f.number_field :parking, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :price %>
+    <%= f.text_field :price, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :images %> <br />
+    <%= f.file_field :images, multiple: true, accept: "image/jpeg, image/jpg, image/gif, image/png" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit "Update Commercial Unit", class: 'btn btn-outline-primary' %>
+  </div>
+
+<% end %>

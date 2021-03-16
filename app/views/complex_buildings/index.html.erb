@@ -1,0 +1,22 @@
+<div class="container-fluid mt-4">
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="text-center mb-4">Complex Buildings</h1>
+      <div class="row">
+        <% @complex_buildings.each do |complex_building| %>
+          <div class="col-md-3">
+            <div class="card">
+              <div class="img-bg-fix" style="background-image: url(<%= complex_building.image %>)"></div>
+              <div class="card-body">
+                <h5 class="card-title"><strong>Owner:</strong> <%= complex_building.owner %></h5>
+                <p class="card-text"><strong>Address:</strong> <%= complex_building.address %></p>
+                <p class="card-text"><strong>Price:</strong> $<%= complex_building.price %></p>
+                <%= link_to "View Details", complex_building, class: "btn btn-outline-secondary" %> | <button type="button" class="btn btn-outline-dark">Buy Property</button>
+              </div>
+            </div>        
+          </div>
+        <% end %>  
+      </div>
+    </div>
+  </div>
+</div> 

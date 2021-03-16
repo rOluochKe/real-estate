@@ -1,0 +1,51 @@
+<%= form_for(@house, hmtl: { multipart: true } ) do |f| %>
+  <div class="form-group">
+    <%= f.label :image %>
+    <%= f.file_field :image, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :owner %>
+    <%= f.text_field :owner, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :address %>
+    <%= f.text_field :address, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :rooms %>
+    <%= f.number_field :rooms, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :sqmt %>
+    <%= f.number_field :sqmt, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :floors %>
+    <%= f.number_field :floors, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :air_cond %>
+    <%= f.check_box :air_cond, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :price %>
+    <%= f.text_field :price, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :images %> <br />
+    <%= f.file_field :images, multiple: true, accept: "image/jpeg, image/jpg, image/gif, image/png" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit "Submit House", class: 'btn btn-outline-primary' %>
+  </div>
+
+<% end %>

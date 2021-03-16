@@ -1,0 +1,43 @@
+<div class="container-fluid mt-4">
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="text-center mb-4">Complex Building Details</h1>
+      <div class="row">
+
+        <div class="col-md-4">
+          <div class="card">
+            <%= image_tag(@complex_building.image_url) %>
+            <div class="card-body">
+              <h5 class="card-title"><strong>Owner:</strong> <%= @complex_building.owner %></h5>
+              <p class="card-text"><strong>Address:</strong> <%= @complex_building.address %></p>
+              <p class="card-text"><strong>Units:</strong> <%= @complex_building.units %></p>
+              <p class="card-text"><strong>Sqmt:</strong> <%= @complex_building.sqmt %></p>
+              <p class="card-text"><strong>Price:</strong> $<%= @complex_building.price %></p>
+
+              <% if @complex_building.user == current_user %>
+                <%= link_to '<i class="fa fa-pencil-square-o go-center"></i>'.html_safe, edit_complex_building_path(@complex_building) %>
+              <% end %>
+              |
+              <% if @complex_building.user == current_user %>
+                <%= link_to ('<i class="fa fa-trash go-center"></i>').html_safe, @complex_building, :method=> :delete, data: { confirm: 'Are you sure?' } %>
+              <% end %>
+              |
+              <%= link_to '<i class="fa fa-cart-plus go-center"></i>'.html_safe %>
+            </div>
+          </div>        
+        </div>
+
+        <div class="col-md-8">
+          <% if @complex_building.images.attached? %>
+            <main class="cards">
+              <% @complex_building.images.each do |image| %>
+                <%= image_tag image %>
+              <% end %>
+            </main>
+          <% end %>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

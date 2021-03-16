@@ -1,0 +1,22 @@
+<div class="container-fluid mt-4">
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="text-center mb-4">Commercial Units</h1>
+      <div class="row">
+        <% @commercial_units.each do |commercial_unit| %>
+          <div class="col-md-3">
+            <div class="card">
+              <div class="img-bg-fix" style="background-image: url(<%= commercial_unit.image %>)"></div>
+              <div class="card-body">
+                <h5 class="card-title"><strong>Owner:</strong> <%= commercial_unit.owner %></h5>
+                <p class="card-text"><strong>Address:</strong> <%= commercial_unit.address %></p>
+                <p class="card-text"><strong>Price:</strong> $<%= commercial_unit.price %></p>
+                <%= link_to "View Details", commercial_unit, class: "btn btn-outline-secondary" %> | <button type="button" class="btn btn-outline-dark">Buy Property</button>
+              </div>
+            </div>        
+          </div>
+        <% end %>  
+      </div>
+    </div>
+  </div>
+</div> 

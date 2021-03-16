@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Real Esate App</title>
+    <%= render 'layouts/rails_default' %>
+  </head>
+
+  <body class="d-flex flex-column h-100">
+    <%= render 'layouts/header' %>
+    <%= render 'layouts/flash' %>
+    <%= yield %>
+    <%= render 'layouts/footer' %>
+  </body>
+</html>
